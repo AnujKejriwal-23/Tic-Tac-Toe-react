@@ -1,16 +1,80 @@
-# React + Vite
+# Tic-Tac-Toe React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple Tic-Tac-Toe game built with React and Vite.
 
-Currently, two official plugins are available:
+## Features
+- Play classic Tic-Tac-Toe (N x N grid, configurable)
+- Turn-based play (O and X)
+- Winner detection
+- Toast notifications for win
+- Game reset functionality
+- Responsive UI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## React Compiler
+### Prerequisites
+- Node.js (v14 or higher recommended)
+- npm or yarn
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd tic-tac-toe-react
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-## Expanding the ESLint configuration
+### Running the App
+Start the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Project Structure
+```
+├── public/
+├── src/
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   ├── main.jsx
+│   ├── assets/
+│   ├── components/
+│   │   ├── Card/
+│   │   │   ├── Card.jsx
+│   │   │   └── Card.css
+│   │   ├── Grid/
+│   │   │   ├── Grid.jsx
+│   │   │   └── Grid.css
+│   │   └── Icon/
+│   │       └── Icon.jsx
+│   └── helpers/
+│       └── checkWinner.js
+├── index.html
+├── package.json
+├── vite.config.js
+├── eslint.config.js
+└── README.md
+```
+
+## Usage
+- Click on a cell to make a move.
+- The current turn is displayed.
+- When a player wins, a toast notification appears and the winner is shown.
+- Click "Reset game" to start a new game.
+
+## Dependencies
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [react-toastify](https://fkhadra.github.io/react-toastify/)
+
+## License
+MIT
