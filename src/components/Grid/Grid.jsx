@@ -13,6 +13,7 @@ function Grid({numberOfCards}){
   const [winner,setWinner] = useState(null);
 
   function play(index){
+    if (board[index] || winner || board.every(cell => cell !== "")) return;
     if(turn == true) {
       board[index] = "O";
     }else {
@@ -36,17 +37,24 @@ function Grid({numberOfCards}){
 
   return (
     <div className='grid-wrapper'>
-      {winner && (
-        <>
-        <h1 className='turn-highlight'>Winner is {winner}</h1>
-        <button className='reset' onClick={reset}>Reset game</button>
-        </>
-      )}
-      <h1 className="turn-highlight">Current Turn: {(turn) ? 'O' : 'X'} </h1>
+      <h1 className="turn-highlight">
+    {winner
+      ? `Winner is ${winner}`
+      : board.every(cell => cell !== "")
+      ? "Game Draw 🤝"
+      : `Current Turn: ${turn ? "O" : "X"}`
+    }
+  </h1>
+
+  { (winner || board.every(cell => cell !== "")) && (
+    <button className="reset" onClick={reset}>
+      Reset Game
+    </button>
+  )}
     <div className="grid">
       {
         board.map((value,idx)=>{
-          return <Card gameEnd={winner ? true : false} player={value} key={idx} onPlay={play} index={idx}/>
+          return <Card gameEnd={winner || board.every(cell => cell !== "")} player={value} key={idx} onPlay={play} index={idx}/>
         })
       }
     </div>
